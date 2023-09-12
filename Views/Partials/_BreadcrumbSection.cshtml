@@ -17,10 +17,10 @@
         {
             <a href="@item.Url(PublishedUrlProvider)">@item.Name</a>
         }
-        <a href="">@Model.Name</a>
+        <span>@Model.Name</span>
      </div>
-     <h1>Let´s Connect</h1>
+     <h1>@Model.Value("breadcrumbTitle")</h1>
  </div>
- <img id="showcaseEffect" src="images/background-effects/background-lines.svg">
+ <img id="showcaseEffect" src="~/static/background-lines.svg">
 </div>
 }

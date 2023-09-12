@@ -1,0 +1,95 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+
+<section class="articles-news">
+    <div class="container">
+        <h2>Get Every Single Articles & News</h2>
+        
+            
+            
+@{
+	var selection = Umbraco.Content(Guid.Parse("d43cb715-0e75-4110-a0cb-50d7edae4040"))
+    .ChildrenOfType("articleDetailPage")
+    .Where(x => x.IsVisible())
+    .OrderByDescending(x => x.CreateDate);
+}
+
+
+<div class="articles">
+	@foreach (var item in selection)
+	{
+		var thumbnail = item.Value<IPublishedContent>("articleThumbnail");
+			
+		<div class="article">
+                <div class="date"><span>25</span> Mar</div>
+                <img src="@thumbnail.Url()">
+                <p class="title">@item.Value("articleCategory")</p>
+                <h3>@item.Value("articleTitle")</h3>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Architecto sed hic libero.</p>
+                <a href="@item.Url()">@item.Name()</a>
+        </div>
+	}
+
+
+
+            
+            
+            
+            <!--<div class="article">-->
+            <!--    <div class="date"><span>17</span> Mar</div>-->
+            <!--    <img src="images/article2.jpg">-->
+            <!--    <p class="title">Business</p>-->
+            <!--    <h3>How To Implement Chat GPT In Your Projects</h3>-->
+            <!--    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Architecto sed hic libero.</p>-->
+            <!--</div>-->
+            <!--<div class="article">-->
+            <!--    <div class="date"><span>13</span> Mar</div>-->
+            <!--    <img src="images/article3.jpg">-->
+            <!--    <p class="title">Business</p>-->
+            <!--    <h3>The Guide To Support Modern CSS Design</h3>-->
+            <!--    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Architecto sed hic libero.</p>-->
+            <!--</div>-->
+            <!--<div class="article">-->
+            <!--    <div class="date"><span>13</span> Mar</div>-->
+            <!--    <img src="images/article4.jpg">-->
+            <!--    <p class="title">Business</p>-->
+            <!--    <h3>Why You Need To Implement The Five S's</h3>-->
+            <!--    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Architecto sed hic libero.</p>-->
+            <!--</div>-->
+            <!--<div class="article">-->
+            <!--    <div class="date"><span>07</span> Mar</div>-->
+            <!--    <img src="images/article5.jpg">-->
+            <!--    <p class="title">Business</p>-->
+            <!--    <h3>Get More Involved With Your End Users</h3>-->
+            <!--    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Architecto sed hic libero.</p>-->
+            <!--</div>-->
+            <!--<div class="article">-->
+            <!--    <div class="date"><span>02</span> Mar</div>-->
+            <!--    <img src="images/article1.jpg">-->
+            <!--    <p class="title">Business</p>-->
+            <!--    <h3>Guided Tour Of Our New Head Office In Stockholm</h3>-->
+            <!--    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Architecto sed hic libero.</p>-->
+            <!--</div>-->
+            <!--<div class="article">-->
+            <!--    <div class="date"><span>28</span> Feb</div>-->
+            <!--    <img src="images/article2.jpg">-->
+            <!--    <p class="title">Business</p>-->
+            <!--    <h3>Using Business Intelligence To Get Insights Into Our Businesses</h3>-->
+            <!--    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Architecto sed hic libero.</p>-->
+            <!--</div>-->
+            <!--<div class="article">-->
+            <!--    <div class="date"><span>18</span> Feb</div>-->
+            <!--    <img src="images/article6.jpg">-->
+            <!--    <p class="title">Business</p>-->
+            <!--    <h3>Apple Has Released New Products. Are They Any Good?</h3>-->
+            <!--    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Architecto sed hic libero.</p>-->
+            <!--</div>-->
+            <!--<div class="article">-->
+            <!--    <div class="date"><span>11</span> Feb</div>-->
+            <!--    <img src="images/project3.jpg">-->
+            <!--    <p class="title">Business</p>-->
+            <!--    <h3>The Guide To Support Modern CSS Design</h3>-->
+            <!--    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Architecto sed hic libero.</p>-->
+            <!--</div>-->
+        </div>
+    </div>
+</section>

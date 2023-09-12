@@ -110,7 +110,23 @@ html, body {
   background-color: #F0EFE9;
   padding: 2rem 0;
 }
+.active {
+    position: relative;
+    text-decoration: none;
+}
 
+.active::after {
+    content: "";
+    position: absolute;
+    bottom: -3px;
+    left: 22%;
+    width: 15px;
+    height: 1px;
+    background-color: #191919;
+    border-radius: 2px;
+}
+
+    
 nav {
   background-color: #F0EFE9;
 }
@@ -174,14 +190,10 @@ nav .nav-links {
   transition: 0.3s ease-in-out;
 }
 nav .nav-links .links a {
-  padding: 0 1rem;
+  padding-right:1.5rem;
 }
 nav .nav-links .links a:hover {
   font-weight: bold;
-  text-decoration: underline;
-}
-nav .nav-links .links a:first-child {
-  padding: 0 1rem 0 0;
 }
 
 .showcase {
@@ -237,10 +249,14 @@ nav .nav-links .links a:first-child {
 }
 .showcase-breadcrumb a {
   text-decoration: none;
-  font-weight: 500;
+  font-weight: 300;
   color: #191919;
   margin-right: 1rem;
 }
+.showcase-breadcrumb span {
+    font-weight:500;
+}
+
 .showcase-breadcrumb h1 {
   font-family: "DM Sans", sans-serif;
   font-size: 56px;
