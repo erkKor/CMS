@@ -1,0 +1,28 @@
+﻿@using Umbraco.Cms.Core.Models;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+
+ <section class="about-company">
+        <div class="container">
+            @{
+            var aboutCompanyImage = Model.Value<MediaWithCrops>("aboutCompanyImage");
+            if(aboutCompanyImage != null)
+            {
+                <img src="@aboutCompanyImage.MediaUrl()" alt="@Model.Value("blueBoxName")">
+            }
+            }
+            <div class="content">
+                <p class="title">@Model.Value("aboutCompanyTitle")</p>
+                <h2>@Model.Value("aboutCompanyDescription")</h2>
+                <p>@Html.Raw(Model.Value<string>("aboutCompanyText").Replace("\n", "<br />"))</p>
+                <div class="buttons">
+                    <a href="" class="button-dark">Learn More<i class="fa-regular fa-arrow-up-right"></i></a>
+                    <a href="" class="button-round"><i class="fa-sharp fa-solid fa-play"></i></a>
+                    <p>Intro Video</p>
+                </div>
+            </div>
+            <div class="info-box">
+                <h2>@Model.Value("blueBoxName"), <span>@Model.Value("blueBoxTitle")</span></h2>
+                <p>@Model.Value("blueBoxText")</p>
+            </div>
+        </div>
+</section>

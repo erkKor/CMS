@@ -1,0 +1,52 @@
+﻿@using Umbraco.Cms.Core.Models;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+<section class="articles-news">
+    <div class="container">
+        <p>@Model.Value("articleNewsTitle")</p>
+        <div class="title-button">
+            <h2>@Model.Value("articleNewsDesc")</h2>
+            <a href="" class="button-light-theme">@Model.Value("articleNewsBtnText")<i class="fa-regular fa-arrow-up-right"></i></a>
+        </div>
+        <div class="articles">
+            <div class="article">
+                <div class="date"><span>@Model.Value("articleNewsDateDay1")</span> @Model.Value("articleNewsDateMonth1")</div>
+                @{
+                    var articleNewsImage1 = Model.Value<MediaWithCrops>("articleNewsImage1");
+                    if(articleNewsImage1 != null)
+                    {
+                        <img src="@articleNewsImage1.MediaUrl()">
+                    }
+                }
+                <p class="title">@Model.Value("articleNewsCategory1")</p>
+                <h3>@Model.Value("articleNewsTitle1")</h3>
+                <p>@Model.Value("articleNewsDesc1")</p>
+            </div>
+            <div class="article">
+                <div class="date"><span>@Model.Value("articleNewsDateDay2")</span> @Model.Value("articleNewsDateMonth2")</div>
+                @{
+                    var articleNewsImage2 = Model.Value<MediaWithCrops>("articleNewsImage2");
+                    if(articleNewsImage2 != null)
+                    {
+                        <img src="@articleNewsImage2.MediaUrl()">
+                    }
+                }
+                <p class="title">@Model.Value("articleNewsCategory2")</p>
+                <h3>@Model.Value("articleNewsTitle2")</h3>
+                <p>@Model.Value("articleNewsDesc2")</p>
+            </div>
+            <div class="article">
+                <div class="date"><span>@Model.Value("articleNewsDateDay3")</span> @Model.Value("articleNewsDateMonth3")</div>
+                @{
+                    var articleNewsImage3 = Model.Value<MediaWithCrops>("articleNewsImage3");
+                    if(articleNewsImage3 != null)
+                    {
+                        <img src="@articleNewsImage3.MediaUrl()">
+                    }
+                }
+                <p class="title">@Model.Value("articleNewsCategory3")</p>
+                <h3>@Model.Value("articleNewsTitle3")</h3>
+                <p>@Model.Value("articleNewsDesc3")</p>
+            </div>
+        </div>
+    </div>
+</section>

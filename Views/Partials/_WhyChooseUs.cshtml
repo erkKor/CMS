@@ -1,0 +1,83 @@
+﻿@using Umbraco.Cms.Core.Models;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+<section class="why-choose-us">
+        <div class="container">
+            <div class="content">
+                <p>@Model.Value("whyChooseUsTitle")</p>
+                <h2>@Model.Value("whyChooseUsDescription")</h2>
+                <div class="icon-rows">
+                    <div class="_row">
+                        <div class="icon">
+                            @{
+                                var wCUIcon1 = Model.Value<MediaWithCrops>("wCUIcon1");
+                                if(wCUIcon1 != null)
+                                {
+                                    <img src="@wCUIcon1.MediaUrl()" alt="@Model.Value("wCUTitle1")">
+                                }
+                            }
+                        </div>
+                        <div class="text">
+                            <h3>@Model.Value("wCUTitle1")</h3>
+                            <p>@Model.Value("wCUText1")</p>
+                        </div>
+                    </div>
+                    <div class="_row">
+                        <div class="icon">
+                            @{
+                                var wCUIcon2 = Model.Value<MediaWithCrops>("wCUIcon2");
+                                if(wCUIcon2 != null)
+                                {
+                                    <img src="@wCUIcon2.MediaUrl()" alt="@Model.Value("wCUTitle2")">
+                                }
+                            }
+                        </div>
+                        <div class="text">
+                            <h3>@Model.Value("wCUTitle2")</h3>
+                            <p>@Model.Value("wCUText2")</p>
+                        </div>
+                    </div>
+                    <div class="_row">
+                        <div class="icon">
+                            @{
+                                var wCUIcon3 = Model.Value<MediaWithCrops>("wCUIcon3");
+                                if(wCUIcon3 != null)
+                                {
+                                    <img src="@wCUIcon3.MediaUrl()" alt="@Model.Value("wCUTitle3")">
+                                }
+                            }
+                        </div>
+                        <div class="text">
+                            <h3>@Model.Value("wCUTitle3")</h3>
+                            <p>@Model.Value("wCUText3")</p>
+                        </div>
+                    </div>
+                    <div class="_row">
+                        <div class="icon">
+                            @{
+                                var wCUIcon4 = Model.Value<MediaWithCrops>("wCUIcon4");
+                                if(wCUIcon4 != null)
+                                {
+                                    <img src="@wCUIcon4.MediaUrl()" alt="@Model.Value("wCUTitle4")">
+                                }
+                            }
+                        </div>
+                        <div class="text">
+                            <h3>@Model.Value("wCUTitle1")</h3>
+                            <p>@Model.Value("wCUText1")</p>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="image">
+                @{
+                    var whyChooseUsImage = Model.Value<MediaWithCrops>("whyChooseUsImage");
+                    if(whyChooseUsImage != null)
+                    {
+                        <img src="@whyChooseUsImage.MediaUrl()" alt="@Model.Value("whyChooseUsTitle")">
+                    }
+                }
+                <div class="bar"></div>
+            </div>
+        </div>
+    </section>

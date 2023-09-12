@@ -1,0 +1,35 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+<section class="our-services">
+    <div class="container">
+        <p>@Model.Value("ourServicesTitle")</p>
+        <h2>@Model.Value("ourServicesDescription")</h2>
+        <div class="_cards">
+            <div class="_card">
+                <h4>@Model.Value("ourServiceBox1Title")</h4>
+                <p>@Model.Value("ourServiceBox1Text")</p>
+                <a href="" class="button-round"><i class="fa-light fa-arrow-right"></i></a>
+                <div class="line"></div>
+            </div>
+            <div class="_card">
+                <h4>@Model.Value("ourServiceBox2Title")</h4>
+                <p>@Model.Value("ourServiceBox2Text")</p>
+                <a href="" class="button-round"><i class="fa-light fa-arrow-right"></i></a>
+                <div class="line"></div>
+            </div>
+            <div class="_card">
+                <h4>@Model.Value("ourServiceBox3Title")</h4>
+                <p>@Model.Value("ourServiceBox3Text")</p> 
+                <a href="" class="button-round"><i class="fa-light fa-arrow-right"></i></a>
+                <div class="line"></div>
+            </div>
+            <div class="_card">
+                <h4>@Model.Value("ourServiceBox4Title")</h4>
+                <p>@Model.Value("ourServiceBox4Text")</p>
+                <a href="" class="button-round"><i class="fa-light fa-arrow-right"></i></a>
+                <div class="line"></div>
+            </div>
+        </div>
+        <a href="" class="button-light-theme">@Model.Value("ourServicesButtonText")<i class="fa-regular fa-arrow-up-right"></i></a>
+    </div>
+    <img src="images/background-effects/background-lines-right.svg">
+</section>

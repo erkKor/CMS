@@ -1,0 +1,81 @@
+﻿@using Umbraco.Cms.Core.Models;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+<section class="testimonial">
+        <!-- Testimonial -->
+            <div class="container">
+                <p>@Model.Value("testimonialTitle")</p>
+                <h2>@Model.Value("testimonialDesc")</h2>
+                <div class="reviews">
+                    <div class="review">
+                        <div class="stars">
+                            <i class="fa-sharp fa-solid fa-star"></i>
+                            <i class="fa-sharp fa-solid fa-star"></i>
+                            <i class="fa-sharp fa-solid fa-star"></i>
+                            <i class="fa-sharp fa-solid fa-star"></i>
+                            <i class="fa-sharp fa-solid fa-star"></i>
+                        </div>
+                        <p class="text">@Model.Value("testimonialReviewComment1")</p>
+                        <div class="customer">
+                            @{
+                                var testimonialReviewImage1 = Model.Value<MediaWithCrops>("testimonialReviewImage1");
+                                if (testimonialReviewImage1 != null)
+                                {
+                                    <img src="@testimonialReviewImage1.MediaUrl()" alt="@Model.Value("testimonialReviewName1")" />
+                                }
+                            }
+                            <div class="name">
+                                <h3>@Model.Value("testimonialReviewName1")</h3>
+                                <p>@Model.Value("testimonialReviewTL1")</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="review">
+                        <div class="stars">
+                            <i class="fa-sharp fa-solid fa-star"></i>
+                            <i class="fa-sharp fa-solid fa-star"></i>
+                            <i class="fa-sharp fa-solid fa-star"></i>
+                            <i class="fa-sharp fa-solid fa-star"></i>
+                            <i class="fa-sharp fa-solid fa-star"></i>
+                        </div>
+                        <p class="text">@Model.Value("testimonialReviewComment2")</p>
+                        <div class="customer">
+                            @{
+                                var testimonialReviewImage2 = Model.Value<MediaWithCrops>("testimonialReviewImage2");
+                                if (testimonialReviewImage2 != null)
+                                {
+                                    <img src="@testimonialReviewImage2.MediaUrl()" alt="@Model.Value("testimonialReviewName2")" />
+                                }
+                            }
+                            <div class="name">
+                                <h3>@Model.Value("testimonialReviewName2")</h3>
+                                <p>@Model.Value("testimonialReviewTL2")</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="review">
+                        <div class="stars">
+                            <i class="fa-sharp fa-solid fa-star"></i>
+                            <i class="fa-sharp fa-solid fa-star"></i>
+                            <i class="fa-sharp fa-solid fa-star"></i>
+                            <i class="fa-sharp fa-solid fa-star"></i>
+                            <i class="fa-sharp fa-solid fa-star"></i>
+                        </div>
+                        <p class="text">@Model.Value("testimonialReviewComment3")</p>
+                        <div class="customer">
+                            @{
+                                var testimonialReviewImage3 = Model.Value<MediaWithCrops>("testimonialReviewImage3");
+                                if (testimonialReviewImage3 != null)
+                                {
+                                    <img src="@testimonialReviewImage3.MediaUrl()" alt="@Model.Value("testimonialReviewName3")" />
+                                }
+                            }
+                            <div class="name">
+                                <h3>@Model.Value("testimonialReviewName3")</h3>
+                                <p>@Model.Value("testimonialReviewTL3")</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <a href="" class="button-dark">All Reviews<i class="fa-regular fa-arrow-up-right"></i></a>
+            </div>
+    </section>

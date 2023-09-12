@@ -1,0 +1,57 @@
+﻿@using Umbraco.Cms.Core.Models;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+<section class="our-team">
+    <div class="container">
+        <p>@Model.Value("mOTTitle")</p>
+        <div class="title-button">
+            <h2>@Model.Value("mOTDescription")</h2>
+            <a href="@Model.Value("mOTButtonLink")" class="button-light-theme">@Model.Value("mOTButtonText")<i class="fa-regular fa-arrow-up-right"></i></a>
+        </div>
+        <div class="team">
+            <div class="member">
+                @{
+                    var mOTImage1 = Model.Value<MediaWithCrops>("mOTImage1");
+                    if (mOTImage1 != null)
+                    {
+                        <img src="@mOTImage1.MediaUrl()" alt="@Model.Value("mOTMemberTitle1")" />
+                    }
+                }
+                <h3>@Model.Value("mOTMemberName1")</h3>
+                <p>@Model.Value("mOTMemberTitle1")</p>
+            </div>
+            <div class="member">
+                @{
+                    var mOTImage2 = Model.Value<MediaWithCrops>("mOTImage2");
+                    if (mOTImage2 != null)
+                    {
+                        <img src="@mOTImage2.MediaUrl()" alt="@Model.Value("mOTMemberTitle2")" />
+                    }
+                }
+                <h3>@Model.Value("mOTMemberName2")</h3>
+                <p>@Model.Value("mOTMemberTitle2")</p>
+            </div>
+            <div class="member">
+                @{
+                    var mOTImage3 = Model.Value<MediaWithCrops>("mOTImage3");
+                    if (mOTImage3 != null)
+                    {
+                        <img src="@mOTImage3.MediaUrl()" alt="@Model.Value("mOTMemberTitle3")" />
+                    }
+                }
+                <h3>@Model.Value("mOTMemberName3")</h3>
+                <p>@Model.Value("mOTMemberTitle3")</p>
+            </div>
+            <div class="member">
+                @{
+                    var mOTImage4 = Model.Value<MediaWithCrops>("mOTImage4");
+                    if (mOTImage4 != null)
+                    {
+                        <img src="@mOTImage4.MediaUrl()" alt="@Model.Value("mOTMemberTitle4")" />
+                    }
+                }
+                <h3>@Model.Value("mOTMemberName4")</h3>
+                <p>@Model.Value("mOTMemberTitle4")</p>
+            </div>
+        </div>
+    </div>
+</section>
