@@ -2,5 +2,82 @@
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.ArticleDetailPage>
 @using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
 @{
-	Layout = "_Layout.cshtml";
+	Layout = "PageWithBreadcrumb.cshtml";
+    var dateValue = Model.Value<DateTime>("articleDate");
+    var formattedDate = dateValue.ToString("MMM d, yyyy");
+    
+	var selection = Umbraco.Content(Guid.Parse("d43cb715-0e75-4110-a0cb-50d7edae4040"))
+    .ChildrenOfType("articleDetailPage")
+    .Where(x => x.IsVisible())
+    .OrderByDescending(x => x.CreateDate);
 }
+
+
+
+<section class="news-details">
+    <div class="container">
+        <div class="article-content">
+            <h2>@Model.Value("articleTitle")</h2>
+            <div class="article-header">
+                <h5>@formattedDate</h5>
+                <div class="dot"></div>
+                <h5>@Model.Value("articleCategory")</h5>
+                <div class="dot"></div>
+                <h5>@Model.Value("articleAuthor")</h5>
+            </div>
+            @{
+                var articleThumbnail = Model.Value<IPublishedContent>("articleThumbnail");
+
+                if(articleThumbnail != null)
+                {
+                    <img src="@articleThumbnail.MediaUrl()">
+                }
+             }
+            <p>@Model.Value("articleContent")</p>
+            <div class="tags">
+                <a class="tag">Digitalization</a>
+                <a class="tag">School</a>
+                <a class="tag">IT</a>
+                <a class="tag">Design</a>
+                <a class="tag">Work</a>
+                <a class="tag">Tech</a>
+            </div>
+        </div>
+        <div class="article-links">
+            <div class="searchbar">
+                <i class="fa-sharp fa-regular fa-magnifying-glass icon"></i>
+                <input type="search" placeholder="Type to search...">
+            </div>
+            <div class="recent-posts">
+                <div class="title"> 
+                    <h4>Recent Posts</h4>
+                    <div class="underline"></div>
+                </div>
+            	@foreach (var item in selection.Take(4))
+            	{
+            	    var articleDate = item.Value<DateTime>("articleDate");
+            	    var recentDate = articleDate.ToString("MMM d, yyyy");
+            	    
+                	<a class="post" href="@item.Url()">
+                        <h5>@item.Value("articleTitle")</h5>
+                        <p>@recentDate</p>
+            		</a>
+            	}
+            	
+            	
+            </div>
+            <div class="categories">
+                <div class="title"> 
+                    <h4>Categories</h4>
+                    <div class="underline"></div>
+                </div>
+                <a href="">Technology   &nbsp;<span>-&nbsp; 20 Posts</span></a>
+                <a href="">Freelancing &nbsp;<span>-&nbsp; 07 Posts</span></a>
+                <a href="">Writing &nbsp;<span>-&nbsp; 16 Posts</span></a>
+                <a href="">Marketing &nbsp;<span>-&nbsp; 11 Posts</span></a>
+                <a href="">Business &nbsp;<span>-&nbsp; 35 Posts</span></a>
+                <a href="">Education &nbsp;<span>-&nbsp; 14 Posts</span></a>
+            </div>
+        </div>
+    </div>
+</section>
