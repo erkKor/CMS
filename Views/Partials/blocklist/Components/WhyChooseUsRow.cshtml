@@ -1,0 +1,22 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockListItem>;
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@{
+    var content = (ContentModels.WhyChooseUsRow)Model.Content;
+
+}
+
+<div class="_row">
+    <div class="icon">
+        @{
+            var wCURowIcon = content.Value<IPublishedContent>("wCURowIcon");
+            if(wCURowIcon != null)
+            {
+                <img src="@wCURowIcon.MediaUrl()">
+            }
+        }
+    </div>
+    <div class="text">
+        <h3>@content.Value("wCURowTitle")</h3>
+        <p>@content.Value("wCURowDesc")</p>
+    </div>
+</div>
