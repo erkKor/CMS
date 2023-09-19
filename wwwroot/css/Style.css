@@ -412,11 +412,11 @@ nav .nav-links .links a:hover {
   width: 500px;
   margin-bottom: 2rem;
 }
-.our-services ._cards {
+.our-services ._cards .umb-block-list {
   display: flex;
   gap: 1.4rem;
 }
-.our-services ._cards ._card {
+.our-services ._cards .umb-block-list ._card {
   position: relative;
   height: 333px;
   width: 308px;
@@ -425,19 +425,19 @@ nav .nav-links .links a:hover {
   padding-top: 5rem;
   transition: 0.3s ease-in-out;
 }
-.our-services ._cards ._card:hover {
+.our-services ._cards .umb-block-list ._card:hover {
   background-color: #F9D783;
 }
-.our-services ._cards ._card h4 {
+.our-services ._cards .umb-block-list ._card h4 {
   font-family: "DM Sans", sans-serif;
   font-size: 22px;
   font-weight: 800;
 }
-.our-services ._cards ._card p {
+.our-services ._cards .umb-block-list ._card p {
   color: rgba(25, 25, 25, 0.7);
   width: 270px;
 }
-.our-services ._cards ._card .button-round {
+.our-services ._cards .umb-block-list ._card .button-round {
   border: none;
   background-color: #191919;
   color: #fff;
@@ -447,12 +447,12 @@ nav .nav-links .links a:hover {
   font-size: 22px;
   transition: 0.3s ease-in-out;
 }
-.our-services ._cards ._card .button-round:hover {
+.our-services ._cards .umb-block-list ._card .button-round:hover {
   background-color: #fff;
   border: none;
   color: #191919;
 }
-.our-services ._cards ._card .line {
+.our-services ._cards .umb-block-list ._card .line {
   position: absolute;
   top: 50px;
   background-color: white;
