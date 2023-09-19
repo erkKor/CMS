@@ -34,13 +34,18 @@
                 }
              }
             <p>@Model.Value("articleContent")</p>
+            
             <div class="tags">
-                <a class="tag">Digitalization</a>
-                <a class="tag">School</a>
-                <a class="tag">IT</a>
-                <a class="tag">Design</a>
-                <a class="tag">Work</a>
-                <a class="tag">Tech</a>
+                @if(Model.HasValue("articleTags"))
+                {
+                 var tags = Model.Value<IEnumerable<string>>("articleTags");
+
+                        @foreach(var tag in tags)
+                        {
+                             <a href="/news" class="tag">@tag</a>
+                        }
+
+                }
             </div>
         </div>
         <div class="article-links">

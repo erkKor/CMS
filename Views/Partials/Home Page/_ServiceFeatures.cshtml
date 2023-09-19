@@ -1,0 +1,17 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.HomePage>
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+    
+<section class="features">
+    <div class="container">
+        <div class="title-group">
+            <p>@Model.Value("featureTitle")</p>
+            <h2>@Model.Value("featureDescription")</h2>
+            <a href="" class="button-theme">Learn More<i class="fa-regular fa-arrow-up-right"></i></a>
+        </div>
+        <div class="icons">
+          @Html.GetBlockListHtml(Model.FeatureServices)
+        </div>
+    </div>
+</section>
+    

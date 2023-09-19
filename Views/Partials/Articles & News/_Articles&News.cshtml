@@ -1,0 +1,64 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@{
+    var itemsPerPage = 6;
+    var pageNumber = 1;
+    
+    if (!int.TryParse(Context.Request.Query["page"], out pageNumber))
+        pageNumber = 1;
+
+	var selection = Umbraco.Content(Guid.Parse("d43cb715-0e75-4110-a0cb-50d7edae4040"))
+    .ChildrenOfType("articleDetailPage")
+    .Where(x => x.IsVisible())
+    .OrderByDescending(x => x.CreateDate);
+    
+    var totalItems = selection?.Count() ?? 0;
+    var pagedItems = selection?.Skip((pageNumber -1) * itemsPerPage).Take(itemsPerPage);
+ 
+    
+}
+
+
+<section class="articles-news">
+    <div class="container">
+        <h2>Get Every Single Articles & News</h2>
+    <div class="articles">
+    	@foreach (var item in pagedItems!)
+    	{
+    		var thumbnail = item.Value<IPublishedContent>("articleThumbnail");
+    		var dateValue = item.Value<DateTime>("articleDate");
+            var day = dateValue.Day.ToString(); 
+            var month = dateValue.ToString("MMM"); 
+    			
+    		<a href="@item.Url()" class="article">
+                <div class="date"><span>@day</span> @month</div>
+                <img src="@thumbnail.Url()">
+                <p class="title">@item.Value("articleCategory")</p>
+                <h3>@item.Value("articleTitle")</h3>
+                <p>@item.Value("articleDescription")</p>
+            </a>
+    	}
+    </div>
+    <nav class="article-pagination" aria-label="Page navigation">
+            @if(pageNumber > 1)
+            {
+                <a href="?page=@(pageNumber - 1)" class="article-page" aria-label="Previous">
+                    <i class="fa-sharp fa-solid fa-chevron-left"></i>
+                </a>
+            }
+            
+            @for(int i=1; i<= Math.Ceiling((decimal)totalItems / itemsPerPage); i++)
+            {
+                if (i == pageNumber) 
+                { <a href="#" class="article-page current">@i</a> }
+                else { <a href="?page=@i" class="article-page">@i</a> }
+            }
+            
+            @if(pageNumber < Math.Ceiling((decimal)totalItems / itemsPerPage))
+            {
+                <a href="?page=@(pageNumber + 1)" class="article-page" aria-label="Next">
+                    <i class="fa-sharp fa-solid fa-chevron-right"></i>
+                </a>
+            }
+        </nav>
+    </div>
+</section>

@@ -304,22 +304,21 @@ nav .nav-links .links a:hover {
 .features .title-group .button-theme {
   width: 460px;
 }
-.features .icons {
+.features .icons .umb-block-list {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 1.5rem;
 }
-.features .icons .icon-group {
+.features .icons .umb-block-list .icon-group {
   padding: 1rem;
   width: 305px;
 }
-.features .icons .icon-group h3 {
+.features .icons .umb-block-list .icon-group h3 {
   font-family: "DM Sans", sans-serif;
   font-size: 22px;
   font-weight: bold;
   margin: 1rem 0 0.5rem 0;
 }
-
 .about-company {
   margin-top: 10rem;
 }
@@ -821,6 +820,35 @@ nav .nav-links .links a:hover {
   font-weight: 1000;
   width: 300px;
 }
+
+.articles-news .article-pagination {
+  margin-top: 1rem;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.articles-news .article-pagination .article-page {
+  text-decoration: none;
+  height: 38px;
+  width: 38px;
+  border: 1px solid #EAE9F2;
+  border-radius: 6px;
+  font-family: "DM Sans", sans-serif;
+  font-size: 21px;
+  text-align: center;
+  padding-top: 5px;
+  margin: 0 3px;
+}
+.articles-news .article-pagination .article-page i {
+  font-size: 16px;
+}
+.articles-news .article-pagination .current {
+  background-color: #191919;
+  color: #fff;
+}
+
+
 
 .subscribe-bar {
   background-color: #F0EFE9;
