@@ -1,6 +1,6 @@
 ﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
 @{
-    var itemsPerPage = 6;
+    var itemsPerPage = 3;
     var pageNumber = 1;
     
     if (!int.TryParse(Context.Request.Query["page"], out pageNumber))
@@ -21,7 +21,8 @@
 <section class="articles-news">
     <div class="container">
         <h2>Get Every Single Articles & News</h2>
-    <div class="articles">
+    <div class="wrapper">
+        <div class="articles-grid">
     	@foreach (var item in pagedItems!)
     	{
     		var thumbnail = item.Value<IPublishedContent>("articleThumbnail");
@@ -38,7 +39,8 @@
             </a>
     	}
     </div>
-    <nav class="article-pagination" aria-label="Page navigation">
+    </div>
+     <nav class="article-pagination" aria-label="Page navigation">
             @if(pageNumber > 1)
             {
                 <a href="?page=@(pageNumber - 1)" class="article-page" aria-label="Previous">
@@ -60,5 +62,6 @@
                 </a>
             }
         </nav>
+
     </div>
 </section>

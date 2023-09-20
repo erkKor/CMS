@@ -1,41 +1,44 @@
 ﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
-
+@{
+	var footerContent = Umbraco.Content(Guid.Parse("82ea2cd3-7072-4332-ba0b-835cab9bd632"));
+}
 <footer>
         <div class="main">
             <div class="container">
                 <div class="logo">
                     <img src="~/static/logotype-whiteNew.svg">
-                    <p>@Model.Value("footerTextUnderLogo")</p>
+                    <p>@footerContent.Value("footerTextUnderLogo")</p>
                 </div>
                 <div class="links">
-                    <div class="column">
-                        <h3>@Model.Value("footerColumn1Title")</h3>
-                        <a href="">@Model.Value("footerColumn1Link1")</a>
-                        <a href="">@Model.Value("footerColumn1Link2")</a>
-                        <a href="">@Model.Value("footerColumn1Link3")</a>
-                        <a href="">@Model.Value("footerColumn1Link4")</a>
+                	<div class="column">
+                        <h3>@footerContent.Value("footerColumn1Title")</h3>
+                        <a href="">@footerContent.Value("footerColumn1LinkTitle1")</a>
+                        <a href="">@footerContent.Value("footerColumn1LinkTitle2")</a>
+                        <a href="">@footerContent.Value("footerColumn1LinkTitle3")</a>
+                        <a href="">@footerContent.Value("footerColumn1LinkTitle4")</a>
                     </div>
-                    <div class="column">
-                        <h3>@Model.Value("footerColumn2Title")</h3>
-                        <a href="">@Model.Value("footerColumn2Link1")</a>
-                        <a href="">@Model.Value("footerColumn2Link2")</a>
-                        <a href="">@Model.Value("footerColumn2Link3")</a>
-                        <a href="">@Model.Value("footerColumn2Link4")</a>
+                	<div class="column">
+                        <h3>@footerContent.Value("footerColumn2Title")</h3>
+                        <a href="">@footerContent.Value("footerColumn2LinkTitle1")</a>
+                        <a href="">@footerContent.Value("footerColumn2LinkTitle2")</a>
+                        <a href="">@footerContent.Value("footerColumn2LinkTitle3")</a>
+                        <a href="">@footerContent.Value("footerColumn2LinkTitle4")</a>
                     </div>
-                    <div class="column">
-                        <h3>@Model.Value("footerColumn3Title")</h3>
-                        <a href="">@Model.Value("footerColumn3Link1")</a>
-                        <a href="">@Model.Value("footerColumn3Link2")</a>
-                        <a href="">@Model.Value("footerColumn3Link3")</a>
-                        <a href="">@Model.Value("footerColumn3Link4")</a>
+                	<div class="column">
+                        <h3>@footerContent.Value("footerColumn3Title")</h3>
+                        <a href="">@footerContent.Value("footerColumn3LinkTitle1")</a>
+                        <a href="">@footerContent.Value("footerColumn3LinkTitle2")</a>
+                        <a href="">@footerContent.Value("footerColumn3LinkTitle3")</a>
+                        <a href="">@footerContent.Value("footerColumn3LinkTitle4")</a>
                     </div>
-                    <div class="column">
-                        <h3>@Model.Value("footerColumn4Title")</h3>
-                        <a href="">@Model.Value("footerColumn4Link1")</a>
-                        <a href="">@Model.Value("footerColumn4Link2")</a>
-                        <a href="">@Model.Value("footerColumn4Link3")</a>
-                        <a href="">@Model.Value("footerColumn4Link4")</a>
+                	<div class="column">
+                        <h3>@footerContent.Value("footerColumn4Title")</h3>
+                        <a href="">@footerContent.Value("footerColumn4LinkTitle1")</a>
+                        <a href="">@footerContent.Value("footerColumn4LinkTitle2")</a>
+                        <a href="">@footerContent.Value("footerColumn4LinkTitle3")</a>
+                        <a href="">@footerContent.Value("footerColumn4LinkTitle4")</a>
                     </div>
+                	
                 </div>
             </div>
             <img class="waves" src="~/static/background-lines-white-right.svg">
@@ -50,3 +53,7 @@
             </div>
         </div>
     </footer>
+
+
+
+
