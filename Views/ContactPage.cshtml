@@ -1,0 +1,58 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.ContactPage>
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@{
+	Layout = "PageWithBreadcrumb.cshtml";
+}
+
+<section class="info-icons">
+    <div class="container">
+        <div class="info-box">
+            <div class="icon">
+                <i class="fa-solid fa-location-dot"></i>
+            </div>
+            <div class="text">
+                <h4>Visit us</h4>
+                <p>Sveavägen 31</p>
+                <p>111 34 STOCKHOLM</p>
+            </div>
+        </div>
+        <div class="info-box">
+            <div class="icon">
+                <i class="fa-solid fa-phone"></i>
+            </div>
+            <div class="text">
+                <h4>Call us</h4>
+                <p>+46 (8) 121 470 50</p>
+                <p>+46 (8) 121 470 50</p>
+            </div>
+        </div>
+        <div class="info-box">
+            <div class="icon">
+                <i class="fa-solid fa-envelope"></i>
+            </div>
+            <div class="text">
+                <h4>Email us</h4>
+                <p>info@crito.com</p>
+                <p>support@crito.com</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="contact-form">
+    <div class="container">
+        <h2>Leave us a message for any information.</h2>
+        <form>
+            <input type="text" placeholder="Name*">
+            <input type="email" placeholder="Email*">
+            <textarea placeholder="Your Message*"></textarea>
+            <button class="button-theme">Send Message<i class="fa-regular fa-arrow-up-right"></i> </button>
+            
+        </form>
+    </div>
+</section>
+
+<section class="map">
+    <iframe class="gmap" width="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=600&amp;height=400&amp;hl=en&amp;q=sveavägen 31 stockholm&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe>
+</section>
