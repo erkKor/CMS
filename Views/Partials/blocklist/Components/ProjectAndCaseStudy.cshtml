@@ -1,0 +1,18 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockListItem>;
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@{
+    var content = (ContentModels.ProjectAndCaseStudy)Model.Content;
+
+}
+
+<div class="project">
+    @{
+        var pjsACaseImage = content.Value<IPublishedContent>("pjsACaseImage");
+        if(pjsACaseImage != null)
+        {
+            <img src="@pjsACaseImage.MediaUrl()">
+        }
+    }
+    <h3>@content.Value("pjsACaseTitle")</h3>
+    <a href="@content.Value("pjsACaseLink")">Read More<i class="fa-regular fa-arrow-up-right"></i></a>
+</div>

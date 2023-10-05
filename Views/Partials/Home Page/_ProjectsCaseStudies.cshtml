@@ -1,0 +1,15 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.HomePage>
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+
+<section class="project-case-study">
+    <div class="container">
+        <p>@Model.Value("pCSTitle")</p>
+        <h2>@Model.Value("pCSDescription")</h2>
+        <div class="projects">
+           @Html.GetBlockListHtml(Model.PjsAndCasesBlockList)
+        </div>
+        <a href="@Model.Value("pCSButtonUrl")" class="button-dark">@Model.Value("pCSButtonText")<i class="fa-regular fa-arrow-up-right"></i></a>
+    </div>
+</section> 
+

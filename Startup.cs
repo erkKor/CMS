@@ -1,3 +1,8 @@
+using Crito.Context;
+using Crito.Services;
+using Microsoft.EntityFrameworkCore;
+using Serilog.Context;
+
 namespace Crito
 {
     public class Startup
@@ -29,12 +34,17 @@ namespace Crito
         /// </remarks>
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<DataContext>(x => x.UseSqlite(_config.GetConnectionString("SqliteDatabase")));
+            services.AddScoped<DatabaseService>();
             services.AddUmbraco(_env, _config)
                 .AddBackOffice()
                 .AddWebsite()
                 .AddDeliveryApi()
                 .AddComposers()
-                .Build();
+            .Build();
+
+      
+           // services.AddUmbracoEFCoreContext<ContactContext>("Data Source=|DataDirectory|/Umbraco.sqlite.db;Cache=Shared;Foreign Keys=True;Pooling=True", "Microsoft.Data.Sqlite");
         }
 
         /// <summary>

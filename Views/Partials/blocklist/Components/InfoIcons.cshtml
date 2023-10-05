@@ -1,0 +1,18 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockListItem>;
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@{
+    var content = (ContentModels.InfoIcons)Model.Content;
+
+}
+
+
+<div class="info-box">
+    <div class="icon">
+         <i class="@content.Value("infoIcon")"></i>
+    </div>
+    <div class="text">
+        <h4>@content.Value("infoIconHeader")</h4>
+        <p>@content.Value("infoIconText1")</p>
+        <p>@content.Value("infoIconText2")</p>
+    </div>
+</div>

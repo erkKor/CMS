@@ -1,6 +1,8 @@
-﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+﻿@using Crito.Models;
+@using Umbraco.Cms.Web.Common.PublishedModels;
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.HomePage>
 @using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+
 @{
 	Layout = "_Layout.cshtml";
 	ViewData["PageTitle"] = @Model.Value("pageTitle");
@@ -9,15 +11,15 @@
 }
 
 
+    
     @await Html.PartialAsync("_Brands")
     @await Html.PartialAsync("Home Page/_ServiceFeatures")
     @await Html.PartialAsync("_AboutCompany")
     @await Html.PartialAsync("Home Page/_OurServices")
     @await Html.PartialAsync("Home Page/_WhyChooseUs")
-    
-    
-    @await Html.PartialAsync("_ProjectsCaseStudies")
+    @await Html.PartialAsync("Home Page/_ProjectsCaseStudies")
+
     @await Html.PartialAsync("Home Page/_MeetOurTeam")
     @await Html.PartialAsync("Home Page/_Testimonial")
     @await Html.PartialAsync("Articles & News/_Articles&NewsWButton")
-    @await Html.PartialAsync("_SubscribeBar")
+    @await Html.PartialAsync("_SubscribeBar", new SubscriberForm())

@@ -1,11 +1,27 @@
-﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+﻿@using Crito.Controllers;
+@model Crito.Models.SubscriberForm;
+
 <section class="subscribe-bar">
     <div class="container">
         <h2>Get News Updates By Signup</h2>
         <div class="input-btn">
-            <input type="email" placeholder="username@domain.com"/>
-            <a href="" class="button-theme">Subscribe<i class="fa-regular fa-arrow-up-right"></i> </a>
+            @*@using (Html.BeginUmbracoForm("Subscribe", "Contacts", FormMethod.Post))*@
+            @using (Html.BeginUmbracoForm<ContactsController>(nameof(ContactsController.Subscribe)))
+            {
+                <small><span asp-validation-for="Email" class="error-msg"></span></small>
+                <div class="input-grp">
+                    <input asp-for="Email" type="email" placeholder="username@domain.com">
+                    <button type="submit" class="button-theme">Subscribe<i class="fa-regular fa-arrow-up-right"></i> </button>
+                </div>
+            }
         </div>
     </div>
     <img src="~/static/background-wavy-lines.svg">
 </section>
+
+
+
+
+
+
+

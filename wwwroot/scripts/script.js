@@ -27,3 +27,22 @@ $(document).ready(function() {
       }
     });
 });
+
+
+$(document).ready(function () {
+    $("#subscribeForm").submit(function (e) {
+        e.preventDefault(); // Prevent the form from submitting normally
+
+        // AJAX request to submit the form
+        $.ajax({
+            type: "POST",
+            url: "/crito/controllers/contactscontroller/Subscribe",
+            data: $(this).serialize(),
+            success: function () {
+                // Hide the form and show the success message
+                $("#subscribeForm").hide();
+                $("#successMessage").show();
+            },
+        });
+    });
+});

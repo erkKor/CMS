@@ -2,54 +2,47 @@
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.ContactPage>
 @using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
 @{
-	Layout = "PageWithBreadcrumb.cshtml";
+    Layout = "PageWithBreadcrumb.cshtml";
+    var contactForm = new Crito.Models.ContactForm();
 }
 
 <section class="info-icons">
     <div class="container">
-        <div class="info-box">
-            <div class="icon">
-                <i class="fa-solid fa-location-dot"></i>
-            </div>
-            <div class="text">
-                <h4>Visit us</h4>
-                <p>Sveavägen 31</p>
-                <p>111 34 STOCKHOLM</p>
-            </div>
-        </div>
-        <div class="info-box">
-            <div class="icon">
-                <i class="fa-solid fa-phone"></i>
-            </div>
-            <div class="text">
-                <h4>Call us</h4>
-                <p>+46 (8) 121 470 50</p>
-                <p>+46 (8) 121 470 50</p>
-            </div>
-        </div>
-        <div class="info-box">
-            <div class="icon">
-                <i class="fa-solid fa-envelope"></i>
-            </div>
-            <div class="text">
-                <h4>Email us</h4>
-                <p>info@crito.com</p>
-                <p>support@crito.com</p>
-            </div>
-        </div>
+        @Html.GetBlockListHtml(Model.InfoIconsBlockList)
     </div>
 </section>
 
 <section class="contact-form">
     <div class="container">
         <h2>Leave us a message for any information.</h2>
-        <form>
-            <input type="text" placeholder="Name*">
-            <input type="email" placeholder="Email*">
-            <textarea placeholder="Your Message*"></textarea>
-            <button class="button-theme">Send Message<i class="fa-regular fa-arrow-up-right"></i> </button>
-            
-        </form>
+
+            <div id="successMessage" class="alert alert-success" style="display:none">
+                Thank you for contacting us!
+            </div>
+
+
+    
+
+        @using (Html.BeginUmbracoForm("Index", "Contacts", FormMethod.Post))
+        {
+            <div asp-validation-summary="ModelOnly"></div>
+
+            <div class="input-grp">
+                <small><span asp-validation-for="@contactForm.Name" class="error-msg"></span></small>
+                <input asp-for="@contactForm.Name" type="text" placeholder="Name*">
+            </div>
+            <div class="input-grp">
+                <small><span asp-validation-for="@contactForm.Email" class="error-msg"></span></small>
+                <input asp-for="@contactForm.Email" type="email" placeholder="Email*">
+            </div>
+            <div class="input-grp">
+                <small><span asp-validation-for="@contactForm.Message" class="error-msg"></span></small>
+                <textarea asp-for="@contactForm.Message" placeholder="Your Message*"></textarea>
+            </div>
+
+            <button type="submit" class="button-theme">Send Message<i class="fa-regular fa-arrow-up-right"></i> </button>
+        }
+
     </div>
 </section>
 
