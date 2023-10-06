@@ -6,7 +6,7 @@
         <h2>Get News Updates By Signup</h2>
         <div class="input-btn">
             @*@using (Html.BeginUmbracoForm("Subscribe", "Contacts", FormMethod.Post))*@
-            @using (Html.BeginUmbracoForm<ContactsController>(nameof(ContactsController.Subscribe)))
+            @using (Html.BeginUmbracoForm<FormsController>(nameof(FormsController.Subscribe)))
             {
                 <small><span asp-validation-for="Email" class="error-msg"></span></small>
                 <div class="input-grp">

@@ -11,10 +11,10 @@ using Umbraco.Cms.Web.Website.Controllers;
 
 namespace Crito.Controllers
 {
-    public class ContactsController : SurfaceController
+    public class FormsController : SurfaceController
     {
         private readonly DatabaseService _db;
-        public ContactsController(IUmbracoContextAccessor umbracoContextAccessor, IUmbracoDatabaseFactory databaseFactory, ServiceContext services, AppCaches appCaches, IProfilingLogger profilingLogger, IPublishedUrlProvider publishedUrlProvider, DatabaseService db) : base(umbracoContextAccessor, databaseFactory, services, appCaches, profilingLogger, publishedUrlProvider)
+        public FormsController(IUmbracoContextAccessor umbracoContextAccessor, IUmbracoDatabaseFactory databaseFactory, ServiceContext services, AppCaches appCaches, IProfilingLogger profilingLogger, IPublishedUrlProvider publishedUrlProvider, DatabaseService db) : base(umbracoContextAccessor, databaseFactory, services, appCaches, profilingLogger, publishedUrlProvider)
         {
             _db = db;
         }
@@ -25,7 +25,7 @@ namespace Crito.Controllers
             if (ModelState.IsValid)
             {
                 await _db.AddContactMessageToDb(contactForm);
-
+                ViewData["SuccesMessage"] = "We will be contacting you soon..";
                 return LocalRedirect(contactForm.RedirectUrl ?? "/");
             }
 
@@ -47,6 +47,7 @@ namespace Crito.Controllers
             {
 
                 await _db.AddSubscriberToDb(subscriberForm);
+
                 ModelState.Clear();
                 return CurrentUmbracoPage();
             }

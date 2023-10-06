@@ -20,10 +20,10 @@
                 Thank you for contacting us!
             </div>
 
-
+        <h1>@ViewData["SuccessMessage"]</h1>
     
 
-        @using (Html.BeginUmbracoForm("Index", "Contacts", FormMethod.Post))
+        @using (Html.BeginUmbracoForm("Index", "Forms", FormMethod.Post))
         {
             <div asp-validation-summary="ModelOnly"></div>
 
