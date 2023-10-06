@@ -26,7 +26,7 @@ namespace Crito.Controllers
             if (ModelState.IsValid)
             {
                 await _db.AddContactMessageToDb(contactForm);
-                TempData.Add("CustomMessage", "Succes");
+                TempData.Add("SuccesMsg", "Succes");
                 ModelState.Clear();
                 return LocalRedirect(contactForm.RedirectUrl ?? "/");
             }

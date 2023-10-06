@@ -14,7 +14,7 @@
 
 <section class="contact-form">
     <div class="container">
-        @if (TempData["CustomMessage"] != null)
+        @if (TempData["SuccesMsg"] != null)
         {
             <div class="succes-msg">
                 <h2>@Model.Value("formSuccesHeader")</h2>
@@ -22,10 +22,12 @@
                 <a class="button-dark" href="@Model.Value("formSuccesButtonLink")">@Model.Value("formSuccesButtonText")<i class="fa-regular fa-arrow-up-right"></i> </a>
             </div>
         }
-        
-        @if (TempData["CustomMessage"] == null)
+       
+           
+
+        @if (TempData["SuccesMsg"] == null)
         {
-            <h2>Leave us a message for any information.</h2>
+             <h2>Leave us a message for any information.</h2>
 
             @using (Html.BeginUmbracoForm("Index", "Forms", FormMethod.Post))
             {
@@ -46,6 +48,7 @@
 
                 <button type="submit" class="button-theme">Send Message<i class="fa-regular fa-arrow-up-right"></i> </button>
             }
+        
         }
        
 
