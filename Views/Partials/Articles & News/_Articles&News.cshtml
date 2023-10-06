@@ -14,13 +14,13 @@
     var totalItems = selection?.Count() ?? 0;
     var pagedItems = selection?.Skip((pageNumber -1) * itemsPerPage).Take(itemsPerPage);
  
-    
+    var globalSettings = Umbraco.Content(Guid.Parse("82ea2cd3-7072-4332-ba0b-835cab9bd632"));
 }
 
 
 <section class="articles-news">
     <div class="container">
-        <h2>Get Every Single Articles & News</h2>
+        <h2>@globalSettings.Value("articleNewsTitle")</h2>
     <div class="wrapper">
         <div class="articles-grid">
     	@foreach (var item in pagedItems!)

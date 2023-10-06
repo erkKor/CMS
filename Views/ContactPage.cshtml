@@ -14,34 +14,40 @@
 
 <section class="contact-form">
     <div class="container">
-        <h2>Leave us a message for any information.</h2>
-
-            <div id="successMessage" class="alert alert-success" style="display:none">
-                Thank you for contacting us!
-            </div>
-
-        <h1>@ViewData["SuccessMessage"]</h1>
-    
-
-        @using (Html.BeginUmbracoForm("Index", "Forms", FormMethod.Post))
+        @if (TempData["CustomMessage"] != null)
         {
-            <div asp-validation-summary="ModelOnly"></div>
-
-            <div class="input-grp">
-                <small><span asp-validation-for="@contactForm.Name" class="error-msg"></span></small>
-                <input asp-for="@contactForm.Name" type="text" placeholder="Name*">
+            <div class="succes-msg">
+                <h2>@Model.Value("formSuccesHeader")</h2>
+                <p>@Model.Value("formSuccesText")</p>
+                <a class="button-dark" href="@Model.Value("formSuccesButtonLink")">@Model.Value("formSuccesButtonText")<i class="fa-regular fa-arrow-up-right"></i> </a>
             </div>
-            <div class="input-grp">
-                <small><span asp-validation-for="@contactForm.Email" class="error-msg"></span></small>
-                <input asp-for="@contactForm.Email" type="email" placeholder="Email*">
-            </div>
-            <div class="input-grp">
-                <small><span asp-validation-for="@contactForm.Message" class="error-msg"></span></small>
-                <textarea asp-for="@contactForm.Message" placeholder="Your Message*"></textarea>
-            </div>
-
-            <button type="submit" class="button-theme">Send Message<i class="fa-regular fa-arrow-up-right"></i> </button>
         }
+        
+        @if (TempData["CustomMessage"] == null)
+        {
+            <h2>Leave us a message for any information.</h2>
+
+            @using (Html.BeginUmbracoForm("Index", "Forms", FormMethod.Post))
+            {
+                <div asp-validation-summary="ModelOnly"></div>
+
+                <div class="input-grp">
+                    <small><span asp-validation-for="@contactForm.Name" class="error-msg"></span></small>
+                    <input asp-for="@contactForm.Name" type="text" placeholder="Name*">
+                </div>
+                <div class="input-grp">
+                    <small><span asp-validation-for="@contactForm.Email" class="error-msg"></span></small>
+                    <input asp-for="@contactForm.Email" type="email" placeholder="Email*">
+                </div>
+                <div class="input-grp">
+                    <small><span asp-validation-for="@contactForm.Message" class="error-msg"></span></small>
+                    <textarea asp-for="@contactForm.Message" placeholder="Your Message*"></textarea>
+                </div>
+
+                <button type="submit" class="button-theme">Send Message<i class="fa-regular fa-arrow-up-right"></i> </button>
+            }
+        }
+       
 
     </div>
 </section>

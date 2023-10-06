@@ -5,16 +5,13 @@
 
 @{
 	Layout = "_Layout.cshtml";
-	ViewData["PageTitle"] = @Model.Value("pageTitle");
-	ViewData["PageDescription"] = @Model.Value("pageDescription");
-	ViewData["PageKeywords"] = @Model.Value("pageKeywords");
 }
 
 
     
-    @await Html.PartialAsync("_Brands")
+    @await Html.PartialAsync("Home Page/_Brands")
     @await Html.PartialAsync("Home Page/_ServiceFeatures")
-    @await Html.PartialAsync("_AboutCompany")
+    @await Html.PartialAsync("Home Page/_AboutCompany")
     @await Html.PartialAsync("Home Page/_OurServices")
     @await Html.PartialAsync("Home Page/_WhyChooseUs")
     @await Html.PartialAsync("Home Page/_ProjectsCaseStudies")

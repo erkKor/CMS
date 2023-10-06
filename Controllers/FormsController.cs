@@ -22,22 +22,16 @@ namespace Crito.Controllers
         [HttpPost]
         public async Task<IActionResult> Index(ContactForm contactForm)
         {
+
             if (ModelState.IsValid)
             {
                 await _db.AddContactMessageToDb(contactForm);
-                ViewData["SuccesMessage"] = "We will be contacting you soon..";
+                TempData.Add("CustomMessage", "Succes");
+                ModelState.Clear();
                 return LocalRedirect(contactForm.RedirectUrl ?? "/");
             }
 
             return CurrentUmbracoPage();
-
-            //using var mail = new MailService("no-reply@crito.com", "smtp.crito.com", 587, "umbraco@crito.com", "BytMig123!");
-            //mail.SendAsync(contactForm.Email, "Message received!", "Hello for you").ConfigureAwait(false);
-
-            //mail.SendAsync("umbraco@crito.com", $"{contactForm.Name} sent an email", contactForm.Message).ConfigureAwait(false);
-
-
-            //return RedirectToCurrentUmbracoPage();
         }
 
         [HttpPost]
